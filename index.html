@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table form</title>
+    <style>
+        table {
+            border: solid;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        tr, th, td{
+            border: solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Table 1</h2>
+        <table>
+            <tbody id="tableBody">
+                <th>Index#</th>
+                <th>Values</th>
+                <tr id="rows"></tr>
+            </tbody>
+        </table>
+
+    <h2>Table 2</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alpha</td>
+                <td id="Alpha"></td>
+                <!-- tdAlpha -->
+            </tr>
+            <tr>
+                <td>Beta</td>
+                <td id="Beta"></td>
+                <!-- tdBeta -->
+            </tr>
+            <tr>
+                <td>Charlie</td>
+                <td id="Charlie"></td>
+                <!-- tdCharlie -->
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const arrayNumbers = [
+            41, 18, 21, 63, 2, 53, 5, 57, 60, 93, 28, 3, 90, 39, 80, 88, 49, 60, 26, 28,
+        ]
+
+        const tableBody = document.getElementById("tableBody");
+
+        for (let i =0; i < 20; i++) {
+            const tableRow = document.createElement("tr");
+
+
+            const indexNumber = document.createElement("td");
+            indexNumber.textContent = "A" + (i + 1);
+            tableRow.appendChild(indexNumber);
+
+            const valueNumber = document.createElement("td");
+            valueNumber.textContent = arrayNumbers[i];
+            tableRow.appendChild(valueNumber);
+
+            tableBody.appendChild(tableRow);
+        }
+
+        let calculateAlpha = document.getElementById("Alpha");
+        let calculateBeta = document.getElementById("Beta");
+        let calculateCharlie = document.getElementById("Charlie");
+
+        calculateAlpha.textContent = arrayNumbers[4] + arrayNumbers[19];
+        calculateBeta.textContent = arrayNumbers[14]/arrayNumbers[6];
+        calculateCharlie.textContent = arrayNumbers[12] * arrayNumbers[11];
+
+
+    </script>
+</body>
+</html>
